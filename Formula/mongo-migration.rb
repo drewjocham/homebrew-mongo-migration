@@ -14,28 +14,10 @@ class MongoMigration < Formula
     if Hardware::CPU.intel?
       url "https://github.com/drewjocham/mongo-migration-tool/releases/download/v0.1.0-beta.21/mongo-migration-tool_Darwin_x86_64.tar.gz"
       sha256 "0f7c37b01f1109a676176a97f99fa4107171a424045d0b9351c7bd49c99c3cfc"
-
-      def install
-        bin.install "mongo-migration"
-
-        # Install example configurations
-        pkgshare.install ".env.example"
-        pkgshare.install "examples"
-        pkgshare.install "MCP.md"
-      end
     end
     if Hardware::CPU.arm?
       url "https://github.com/drewjocham/mongo-migration-tool/releases/download/v0.1.0-beta.21/mongo-migration-tool_Darwin_arm64.tar.gz"
       sha256 "dfdec96e0d1e2aa4ffc43405a7ae5a89d22c99c8f27eec3cafe2efae8958adbf"
-
-      def install
-        bin.install "mongo-migration"
-
-        # Install example configurations
-        pkgshare.install ".env.example"
-        pkgshare.install "examples"
-        pkgshare.install "MCP.md"
-      end
     end
   end
 
@@ -43,30 +25,24 @@ class MongoMigration < Formula
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
       url "https://github.com/drewjocham/mongo-migration-tool/releases/download/v0.1.0-beta.21/mongo-migration-tool_Linux_x86_64.tar.gz"
       sha256 "bca10c67abc37e9ded4ae0d23fe99de8160e42077997e88c3a7a0354480beaf9"
-      def install
-        bin.install "mongo-migration"
-
-        # Install example configurations
-        pkgshare.install ".env.example"
-        pkgshare.install "examples"
-        pkgshare.install "MCP.md"
-      end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/drewjocham/mongo-migration-tool/releases/download/v0.1.0-beta.21/mongo-migration-tool_Linux_arm64.tar.gz"
       sha256 "a05369c8f8378cb72a912e3a48c3c2dad7f0c42d03b4cdfb5b8d532c51fbf681"
-      def install
-        bin.install "mongo-migration"
-
-        # Install example configurations
-        pkgshare.install ".env.example"
-        pkgshare.install "examples"
-        pkgshare.install "MCP.md"
-      end
     end
   end
 
+  def install
+    bin.install "mongo-migration"
+
+    # Install example configurations
+    pkgshare.install ".env.example"
+    pkgshare.install "examples"
+    pkgshare.install "MCP.md"
+  end
+
   test do
-    system "#{bin}/mongo-migration --version"
+    output = shell_output("#{bin}/mongo-migration --help")
+    assert_match "Essential MongoDB toolkit", output
   end
 end
