@@ -5,15 +5,15 @@
 class MongoMigration < Formula
   desc "MongoDB migration tool with AI-powered insights and MCP support"
   homepage "https://github.com/drewjocham/mongo-migration-tool"
-  version "0.1.0-beta.20"
+  version "0.1.0-beta.21"
   license "MIT"
 
   depends_on "mongodb/brew/mongodb-community" => :optional
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/drewjocham/mongo-migration-tool/releases/download/v0.1.0-beta.20/mongo-migration-tool_Darwin_x86_64.tar.gz"
-      sha256 "d285bb5b2ac7040cfe22c16a6fad3b58d94c6c52889bd74eb2af1fff15b2ec4c"
+      url "https://github.com/drewjocham/mongo-migration-tool/releases/download/v0.1.0-beta.21/mongo-migration-tool_Darwin_x86_64.tar.gz"
+      sha256 "0f7c37b01f1109a676176a97f99fa4107171a424045d0b9351c7bd49c99c3cfc"
 
       def install
         bin.install "mongo-migration"
@@ -25,8 +25,8 @@ class MongoMigration < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/drewjocham/mongo-migration-tool/releases/download/v0.1.0-beta.20/mongo-migration-tool_Darwin_arm64.tar.gz"
-      sha256 "a3628687ab5887b6ab3476932abbb444392fa55704778510ce65553229c75d5c"
+      url "https://github.com/drewjocham/mongo-migration-tool/releases/download/v0.1.0-beta.21/mongo-migration-tool_Darwin_arm64.tar.gz"
+      sha256 "dfdec96e0d1e2aa4ffc43405a7ae5a89d22c99c8f27eec3cafe2efae8958adbf"
 
       def install
         bin.install "mongo-migration"
@@ -41,8 +41,8 @@ class MongoMigration < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/drewjocham/mongo-migration-tool/releases/download/v0.1.0-beta.20/mongo-migration-tool_Linux_x86_64.tar.gz"
-      sha256 "062e536f3ea572ba9f7ba30668b77bb1161e372209bd70da05bb3f6f26ed088c"
+      url "https://github.com/drewjocham/mongo-migration-tool/releases/download/v0.1.0-beta.21/mongo-migration-tool_Linux_x86_64.tar.gz"
+      sha256 "bca10c67abc37e9ded4ae0d23fe99de8160e42077997e88c3a7a0354480beaf9"
       def install
         bin.install "mongo-migration"
 
@@ -53,8 +53,8 @@ class MongoMigration < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/drewjocham/mongo-migration-tool/releases/download/v0.1.0-beta.20/mongo-migration-tool_Linux_arm64.tar.gz"
-      sha256 "39178d008435435932f68c3efc67543f21fde4c9d8ee826ea939e0d8d0a25544"
+      url "https://github.com/drewjocham/mongo-migration-tool/releases/download/v0.1.0-beta.21/mongo-migration-tool_Linux_arm64.tar.gz"
+      sha256 "a05369c8f8378cb72a912e3a48c3c2dad7f0c42d03b4cdfb5b8d532c51fbf681"
       def install
         bin.install "mongo-migration"
 
