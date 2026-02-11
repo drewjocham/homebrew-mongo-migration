@@ -16,12 +16,12 @@ class MongoMigration < Formula
       sha256 "fb6b9297c0a05b0c005dcc5c61c0af3dbbd372d0067b3fe0c9f1fab1b6baa397"
 
       def install
-        bin.install "mongo-migration"
+        bin.install "mongo-tool"
 
         # Install example configurations
         pkgshare.install ".env.example"
         pkgshare.install "examples"
-        pkgshare.install "MCP.md"
+        pkgshare.install "mcp.md"
       end
     end
     if Hardware::CPU.arm?
@@ -29,12 +29,12 @@ class MongoMigration < Formula
       sha256 "b6fe256b0eeab88dfd884a4cdb53a0521654f73a8c43a791ae0d3178c13e5db6"
 
       def install
-        bin.install "mongo-migration"
+        bin.install "mongo-tool"
 
         # Install example configurations
         pkgshare.install ".env.example"
         pkgshare.install "examples"
-        pkgshare.install "MCP.md"
+        pkgshare.install "mcp.md"
       end
     end
   end
@@ -44,29 +44,29 @@ class MongoMigration < Formula
       url "https://github.com/drewjocham/mongo-migration-tool/releases/download/v1.1.0-beta.4/mongo-migration-tool_Linux_x86_64.tar.gz"
       sha256 "020a70281129e42c882b76bef808b50fab90dead4db58931223417e65b565f5e"
       def install
-        bin.install "mongo-migration"
+        bin.install "mongo-tool"
 
         # Install example configurations
         pkgshare.install ".env.example"
         pkgshare.install "examples"
-        pkgshare.install "MCP.md"
+        pkgshare.install "mcp.md"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/drewjocham/mongo-migration-tool/releases/download/v1.1.0-beta.4/mongo-migration-tool_Linux_arm64.tar.gz"
       sha256 "1c5b22fbab30b8ad7d83eb146edebc096d4ca5c6e8293ca517a61ba053a9ee3f"
       def install
-        bin.install "mongo-migration"
+        bin.install "mongo-tool"
 
         # Install example configurations
         pkgshare.install ".env.example"
         pkgshare.install "examples"
-        pkgshare.install "MCP.md"
+        pkgshare.install "mcp.md"
       end
     end
   end
 
   test do
-    system "#{bin}/mongo-migration --version"
+    system "#{bin}/mongo-tool --version"
   end
 end
